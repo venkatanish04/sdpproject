@@ -1,0 +1,57 @@
+{% extends 'Navbar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <style>
+        .container {
+            position: right;
+            top: 50%;
+            left: 70%;
+            transform: translate(-50%, -50%);
+            border: 1px solid black;
+            padding: 40px;
+        }
+        .container form {
+            width: 100%;
+        }
+        .container label {
+            margin-bottom: 5px;
+        }
+        .container input,
+        .container textarea {
+            width: calc(100% - 20px); /* Adjusted width */
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        .container button {
+            padding: 9px 15px;
+        }
+    </style>
+</head>
+{% block body %}
+<body>
+    <h1 style="text-align:center">Enter your feedback on our website</h1>
+    <div class="container">
+        <form action="{% url 'mainfeedback' %}" method="post">
+            {% csrf_token %}
+            <label for="FirstName">First Name:</label><br/>
+            <input name="FirstName" id="FirstName" type="text"><br/><br/>
+
+            <label for="LastName">Last Name:</label><br/>
+            <input name="LastName" id="LastName" type="text"><br/><br/>
+
+            <label for="Email">Email:</label><br/>
+            <input name="Email" id="Email" type="text"><br/><br/>
+
+            <label for="Comment">Comment:</label><br/>
+            <textarea name="Comment" id="Comment"></textarea><br/><br/>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+{% endblock %}
+</html>

@@ -1,0 +1,25 @@
+{% extends 'Navbar.html' %}
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Travel Package</title>
+</head>
+<body>
+{% block body %}
+<div>
+  <div class="card" style="width: 18rem;">
+    <img src="{% static 'images/KLULogo.jpg' %}" class="card-img-top" alt="KLULogo">
+    <div class="card-body">
+      <h5 class="card-title">Welcome To KLU</h5>
+      <p class="card-text">Welcome To Y22 PFSD-S11 Section</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+</body>
+</html>

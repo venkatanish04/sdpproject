@@ -1,0 +1,45 @@
+{% extends 'Navbar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Printing</title>
+</head>
+<body>
+{% block body %}
+<div class="container text-center">
+  <div class="row align-items-start">
+    <div class="col">
+
+        <div>
+            <form method="post" action="{% url 'weatherlogic' %}">
+                {% csrf_token %}
+                <br>
+                <h4>
+                    <label>Enter a city:</label>
+                    <input type="text" name="place">
+                    <br><br>
+                    <button type="submit" class="btn-success btn-lg">Check the weather</button>
+                </h4>
+            </form>
+        </div>
+    </div>
+    <div class="col text-center"> <!-- Removed deprecated 'align' attribute -->
+        <h1>Top Vacation Destination</h1>
+        <br><br>
+        <h1>
+            {% if error_message %}
+                <p>{{error_message}}</p>
+            {% else %}
+                <p>City: {{city}}</p>
+                <p>Temperature: {{temperature1}}&#68451;</p>
+                <p>Humidity: {{humidity}}%</p>
+            {% endif %}
+        </h1>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+</body>
+</html>
